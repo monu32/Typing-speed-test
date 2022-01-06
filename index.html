@@ -6,8 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Speed test</title>
     <link rel = "icon" href="./assets/speedIcon.png" />
+    <link rel = "stylesheet" href="./style.css"/>
 </head>
 <body>
-    <script src="./index.js"></script>
+    <div id="container">
+        <div id="innerContainer">
+            <p id="text">adhoc</p>
+            <input id="inputText" type="text"/>    
+        </div>
+        <div id="timer">
+
+        </div>
+    </div>
+    <template>
+        <button id="startTyping">
+            <span>Start</span>
+        </button>
+
+        <div id="timeOut">
+            <p>Score : <span id="score"></span></p>
+            <button>
+                <span>Restart</span>
+            </button>
+        </div>  
+    </template>
+
+    <script src="index.js"></script>
 </body>
 </html>

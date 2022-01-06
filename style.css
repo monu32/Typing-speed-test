@@ -1,0 +1,42 @@
+body{
+    margin:0px;
+    background-color: rgb(242, 242, 242);
+}
+
+#container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    right:0px;
+    bottom: 0px;
+    margin:auto;
+    width: 40%;
+    font-size: 30px;
+    height: 40vh;
+    border: 1px solid rgba(230, 230, 230, 1);
+    background-color: white;
+}
+
+#text{
+    text-align: center;
+}
+
+#text,#inputText{
+    margin: 0px;
+}
+
+#timer{
+    width: 20px;
+    height: 40%;
+    border:1px solid black;
+}
+
+#startTyping,#timeOut,#timeOut > button{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-stretch: 100%;
+    font-weight: 600; 
+}
