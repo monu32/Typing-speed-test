@@ -35,14 +35,22 @@
             text = textUpdate()
         }      
     })
-    
+
+    const template = document.getElementsByTagName('template')[0];
+    var containerSelector = document.getElementById("container");
+
     const initializeContainer = () =>
     {
-        let containerSelector = document.getElementById("container");
-        containerSelector.innerHTML = '';
-        const template = document.getElementsByTagName('template')[0];
-        containerSelector.appendChild(template.content.getElementById('timeOut'));   
+        document.getElementById('innerContainer').style.display = 'none';
+        document.getElementById('timer').style.display = 'none';
+        containerSelector.appendChild(template.content.getElementById('startTyping'));   
     }
+
+    template.content.getElementById('startTyping').addEventListener('click',() => {
+        document.getElementById('innerContainer').style.display = 'block';
+        document.getElementById('timer').style.display = 'block';
+        document.getElementById('startTyping').remove();
+    })
 
     initializeContainer();
 })()
