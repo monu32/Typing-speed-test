@@ -26,11 +26,23 @@
         return words[randomIndex];
     }
 
+    const updateDisplay = (ele,prop) =>
+    {
+        ele.style.display = prop;
+    }
+
     const timer = 2;
     let text = textUpdate();
     let oldTime = null;
     let firstKeyHit = true;
     const r = document.querySelector(':root');
+    let score = 0;
+
+
+    const innerContainerSelector = document.getElementById('innerContainer');
+    const timerSelector = document.getElementById('timer');
+    const timeOutContainerSelector = document.getElementById('timeOut')
+
     inputSelector.addEventListener("input",function(event) {
 
         const textEntered = event.target.value;
@@ -42,7 +54,10 @@
             
             if(parseInt((newTime - oldTime)/1000) > timer)
             {
-                console.log("game over");
+                updateDisplay(innerContainerSelector,'none');
+                updateDisplay(timerSelector,'none');
+                updateDisplay(timeOutContainerSelector,'block');
+                document.querySelector('#timeOut > p').style.display = 'block';
             }
 
             firstKeyHit = true;
@@ -56,23 +71,16 @@
             r.style.setProperty('--timerTransition',`width ${timer}s`);
             r.style.setProperty('--timerWidth','100%');
         }
-    })
+    })    
 
-    const template = document.getElementsByTagName('template')[0];
-    var containerSelector = document.getElementById("container");
 
-    const initializeContainer = () =>
-    {
-        document.getElementById('innerContainer').style.display = 'none';
-        document.getElementById('timer').style.display = 'none';
-        containerSelector.appendChild(template.content.getElementById('startTyping'));   
-    }
+    document.getElementById('timeOut').addEventListener('click',() => {
 
-    template.content.getElementById('startTyping').addEventListener('click',() => {
-        document.getElementById('innerContainer').style.display = 'block';
-        document.getElementById('timer').style.display = 'block';
-        document.getElementById('startTyping').remove();
-    })
+        updateDisplay(innerContainerSelector,'block');
+        updateDisplay(timerSelector,'block');
+        updateDisplay(timeOutContainerSelector,'none');
+    })    
 
-    initializeContainer();
+    updateDisplay(innerContainerSelector,'none');
+    updateDisplay(timerSelector,'none');
 })()

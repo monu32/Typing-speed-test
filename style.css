@@ -25,7 +25,7 @@ body{
 }
 
 
-#innerContainer ,#startTyping {
+#innerContainer ,#timeOut {
     position: absolute;
     top:50%;
     left:50%;
@@ -44,7 +44,7 @@ body{
     margin: 0px;
 }
 
-#inputText,#text,#startTyping,#timeOut,#timeOut > button{
+#inputText,#text,#timeOut,#timeOut > button{
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 18px;
     font-stretch: 100%;
