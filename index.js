@@ -12,9 +12,6 @@
         "index"
     ]
 
-    let textSelector = document.getElementById("text")
-    let inputSelector = document.getElementById("inputText");
-
     const textUpdate = () =>
     {
         const minimum = 0;
@@ -32,17 +29,18 @@
     }
 
     const timer = 2;
-    let text = textUpdate();
-    let oldTime = null;
-    let firstKeyHit = true;
-    const r = document.querySelector(':root');
-    let score = 0;
-
-
     const innerContainerSelector = document.getElementById('innerContainer');
     const timerSelector = document.getElementById('timer');
     const timeOutContainerSelector = document.getElementById('timeOut')
-
+    const inputSelector = document.getElementById("inputText");
+    const scoreSelector = document.getElementById("score");
+    const r = document.querySelector(':root');
+    let textSelector = document.getElementById("text");
+    let oldTime = null;
+    let firstKeyHit = true;
+    let score = 0;
+    let text = textUpdate();
+    
     inputSelector.addEventListener("input",function(event) {
 
         const textEntered = event.target.value;
@@ -58,7 +56,11 @@
                 updateDisplay(timerSelector,'none');
                 updateDisplay(timeOutContainerSelector,'block');
                 document.querySelector('#timeOut > p').style.display = 'block';
+                scoreSelector.innerText = score;
+                score = 0;
             }
+            else
+                score++;
 
             firstKeyHit = true;
             r.style.setProperty('--timerTransition','none');
