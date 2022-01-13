@@ -1,3 +1,8 @@
+:root {
+    --timerWidth: 0%;
+    --timerTransition : width 2s;
+    }
+  
 html,body{
     height: 100%;
 }
@@ -28,10 +33,10 @@ body{
 }
 
 #timer{
-    width: 1%;
+    width: var(--timerWidth);
     height: 1.5%;
     background-color: red;
-    transition: width 5s;
+    transition: var(--timerTransition);
 }
 
 #text,#inputText{

@@ -26,14 +26,36 @@
         return words[randomIndex];
     }
 
+    const timer = 2;
     let text = textUpdate();
-    inputSelector.addEventListener("input",function(event){
+    let oldTime = null;
+    let firstKeyHit = true;
+    const r = document.querySelector(':root');
+    inputSelector.addEventListener("input",function(event) {
 
         const textEntered = event.target.value;
-        if(textEntered === text){
+        if(textEntered === text)
+        {
             event.target.value = '';
             text = textUpdate()
+            const newTime = new Date().getTime();
+            
+            if(parseInt((newTime - oldTime)/1000) > timer)
+            {
+                console.log("game over");
+            }
+
+            firstKeyHit = true;
+            r.style.setProperty('--timerTransition','none');
+            r.style.setProperty('--timerWidth','0%');
         }      
+        else if(textEntered.length == 1 && firstKeyHit)
+        {
+            firstKeyHit = false;
+            oldTime = new Date().getTime();
+            r.style.setProperty('--timerTransition',`width ${timer}s`);
+            r.style.setProperty('--timerWidth','100%');
+        }
     })
 
     const template = document.getElementsByTagName('template')[0];
